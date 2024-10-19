@@ -171,7 +171,7 @@ extern NvAPI_Disp_GetDitherControl_pfn          NvAPI_Disp_GetDitherControl;
 
 namespace sk {
 namespace NVAPI {
-  BOOL InitializeLibrary (const wchar_t* wszAppName);
+  BOOL InitializeLibrary (const wchar_t* wszAppName, bool forceLoad = false);
   BOOL UnloadLibrary     (void);
 
   int  CountSLIGPUs      (void);

@@ -162,7 +162,7 @@ SK_DXVK_CheckForInterop (void)
 
           SK_SaveConfig ();
 
-          if ( sk::NVAPI::InitializeLibrary (SK_GetHostApp ()) &&
+          if ( sk::NVAPI::InitializeLibrary (SK_GetHostApp (), true) &&
                sk::NVAPI::nv_hardware )
           {
             config.apis.NvAPI.vulkan_bridge            = 1;

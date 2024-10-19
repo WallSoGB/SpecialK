@@ -1690,7 +1690,7 @@ SK_NvAPI_PreInitHDR (void)
 }
 
 BOOL
-NVAPI::InitializeLibrary (const wchar_t* wszAppName)
+NVAPI::InitializeLibrary (const wchar_t* wszAppName, bool forceLoad)
 {
     std::lock_guard
          lock (SK_NvAPI_Threading->locks.Init);
@@ -1713,7 +1713,7 @@ NVAPI::InitializeLibrary (const wchar_t* wszAppName)
   else
     friendly_name = wszAppName; // Not so friendly, but whatever...
 
-  if (! config.apis.NvAPI.enable) {
+  if (! config.apis.NvAPI.enable && !forceLoad) {
     nv_hardware = false;
     bLibInit    = TRUE + 1; // Clearly this isn't a boolean; just for looks
     return FALSE;
